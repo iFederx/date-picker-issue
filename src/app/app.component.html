@@ -20,8 +20,10 @@
   <input formControlName="datesOnlyFormControl" [selectMode]="'rangeTo'" [owlDateTimeTrigger]="dateToOnlyFormControl"
     [owlDateTime]="dateToOnlyFormControl" placeholder="insert date to">
   <owl-date-time [firstDayOfWeek]="1" #dateToOnlyFormControl [pickerType]="'both'" />
-
+  <br>
+  <pre>
   {{myForm.controls.datesOnlyFormControl.value ?? [] | json}}
+  </pre>
 
   <hr>
   <h2>
@@ -37,8 +39,10 @@
     [selectMode]="'rangeTo'" [owlDateTimeTrigger]="dateToWithModelAndFormControl"
     [owlDateTime]="dateToWithModelAndFormControl" placeholder="insert date to">
   <owl-date-time [firstDayOfWeek]="1" #dateToWithModelAndFormControl [pickerType]="'both'" />
-
+  <br>
+  <pre>
   {{myForm.controls.datesWithModelAndFormControl.value ?? [] | json}}
+  </pre>
 
   <hr>
 </form>
