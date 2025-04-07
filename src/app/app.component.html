@@ -1,13 +1,13 @@
 <h1>Date time picker</h1>
-<hr>
 <form [formGroup]="myForm">
+  <hr>
   <h2>Only ngModel</h2>
-  <input [(ngModel)]="myForm.controls.datesOnlyModel.value" [selectMode]="'rangeFrom'"
-    [owlDateTimeTrigger]="dateFromOnlyModel" [owlDateTime]="dateFromOnlyModel" placeholder="insert date from">
+  <input [(ngModel)]="datesOnlyModel" [selectMode]="'rangeFrom'" [owlDateTimeTrigger]="dateFromOnlyModel"
+    [owlDateTime]="dateFromOnlyModel" placeholder="insert date from">
   <owl-date-time [firstDayOfWeek]="1" #dateFromOnlyModel [pickerType]="'both'" />
 
-  <input [(ngModel)]="myForm.controls.datesOnlyModel.value" [selectMode]="'rangeTo'"
-    [owlDateTimeTrigger]="dateToOnlyModel" [owlDateTime]="dateToOnlyModel" placeholder="insert date to">
+  <input [(ngModel)]="datesOnlyModel" [selectMode]="'rangeTo'" [owlDateTimeTrigger]="dateToOnlyModel"
+    [owlDateTime]="dateToOnlyModel" placeholder="insert date to">
   <owl-date-time [firstDayOfWeek]="1" #dateToOnlyModel [pickerType]="'both'" />
 
   <hr>
@@ -21,9 +21,13 @@
     [owlDateTime]="dateToOnlyFormControl" placeholder="insert date to">
   <owl-date-time [firstDayOfWeek]="1" #dateToOnlyFormControl [pickerType]="'both'" />
 
+  {{myForm.controls.datesOnlyFormControl.value ?? [] | json}}
+
   <hr>
-  <h2>Both ngModel and formControl (<a href="https://angular.io/api/forms/FormControlName#use-with-ngmodel">deprecated
-      usage</a>)</h2>
+  <h2>
+    Both ngModel and formControl (<a href="https://angular.io/api/forms/FormControlName#use-with-ngmodel">deprecated
+      usage</a>)
+  </h2>
   <input formControlName="datesWithModelAndFormControl" [(ngModel)]="myForm.controls.datesWithModelAndFormControl.value"
     [selectMode]="'rangeFrom'" [owlDateTimeTrigger]="dateFromWithModelAndFormControl"
     [owlDateTime]="dateFromWithModelAndFormControl" placeholder="insert date from">
@@ -33,6 +37,8 @@
     [selectMode]="'rangeTo'" [owlDateTimeTrigger]="dateToWithModelAndFormControl"
     [owlDateTime]="dateToWithModelAndFormControl" placeholder="insert date to">
   <owl-date-time [firstDayOfWeek]="1" #dateToWithModelAndFormControl [pickerType]="'both'" />
+
+  {{myForm.controls.datesWithModelAndFormControl.value ?? [] | json}}
 
   <hr>
 </form>
