@@ -23,5 +23,5 @@ jobs:
         with:
           checkout: true
           path: dist/${{ github.event.repository.name }}/browser
-          install_command: npm ci
+          install_command: npm i
           build_command: npm run build -- --base-href=/${{ github.event.repository.name }}/
